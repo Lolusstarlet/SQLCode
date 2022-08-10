@@ -11,33 +11,6 @@ QUESTION- Estimate the growth of Airbnb each year using the number of hosts regi
 Output the year, number of hosts in the current year, number of hosts in the previous year, and the rate of growth. Round the rate of growth to the nearest percent and order the result in the ascending order based on the year.
 Assume that the dataset consists only of unique hosts, meaning there are no duplicate hosts listed.
 
-
-	
-  ----Final calculation happens here
-  SELECT YearExtracted, 
-			Current_year_host,
-			Prev_year_host,
-			 Current_year_host - Prev_year_host  YearDifference,
-			((ROUND ((Current_year_host - Prev_year_host),2))/(CAST( Prev_year_host AS int))) *100 AS Estimated_Growth
-		                             
-			FROM
---gives the previous year count with the sub-query
-		( SELECT YearExtracted, Current_year_host,              
-					LAG ( Current_year_host, 1) OVER 
-					(ORDER BY YearExtracted) AS Prev_year_host
-
-			FROM
-      
- --Extracts Year from Host_since field
- --Counts #hosts grouped by year
-
-		(SELECT YEAR(host_since) AS YearExtracted, 
-				COUNT(Id) Current_year_host					
-				FROM [dbo].[FactAirBnB]
-				WHERE [host_since] IS NOT NULL
-				GROUP BY YEAR (host_since)
-				) G
-				) G2
 Footer
 © 2022 GitHub, Inc.
 Footer navigation
