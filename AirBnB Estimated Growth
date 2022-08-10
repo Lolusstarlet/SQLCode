@@ -1,3 +1,10 @@
+DATASOURCE- https://www.kaggle.com/datasets/oindrilasen/la-airbnb-listings/discussion?resource=download
+
+Download the file and migrate into SSMS with SQL Server 2019 Import and Export Data
+Source- Excel
+Destination- SQL Server Native Client 11
+Select a DB and load.
+
 
 	
   ----Final calculation happens here
