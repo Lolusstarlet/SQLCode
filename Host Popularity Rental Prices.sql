@@ -1,11 +1,11 @@
-DATASOURCE- https://www.kaggle.com/datasets/oindrilasen/la-airbnb-listings/discussion?resource=download
+--DATASOURCE- https://www.kaggle.com/datasets/oindrilasen/la-airbnb-listings/discussion?resource=download
 
-QUESTION- You’re given a table of rental property searches by users. The table consists of search results and outputs host information for searchers. Find the minimum, average, maximum rental prices for each host’s popularity rating. The host’s popularity rating is defined as below:
-0 reviews: New
-1 to 5 reviews: Rising
-6 to 15 reviews: Trending Up
-16 to 40 reviews: Popular
-more than 40 reviews: Hot
+--QUESTION- You’re given a table of rental property searches by users. The table consists of search results and outputs host information for searchers. Find the minimum, average, maximum rental prices for each host’s popularity rating. The host’s popularity rating is defined as below:
+--0 reviews: New
+--1 to 5 reviews: Rising
+--6 to 15 reviews: Trending Up
+--16 to 40 reviews: Popular
+--more than 40 reviews: Hot
 
 
 WITH Hosts as 
