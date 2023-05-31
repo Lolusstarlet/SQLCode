@@ -81,13 +81,22 @@ VALUES ('E1','M1','SM1', 'LM1','C1'),
        
 
 --Solution:
-select c.company_code,
+SELECT c.company_code,
        c.founder,
-       count(distinct(lead_manager_code)),
-       count(distinct(senior_manager_code)),
-       count(distinct(manager_code)),
-       count(distinct(employee_code))
-from Employee e
-left join Company c on e.company_code = c.company_code
-group by c.company_code, c.founder
-order by c.company_code; 
+       COUNT(DISTINCT lm.lead_manager_code) TotalLeadManagers,
+       COUNT(DISTINCT sm.senior_manager_code) TotalSeniorManagers,
+       COUNT(DISTINCT m.manager_code) TotalManagers,
+       COUNT(DISTINCT e.employee_code) TotalEmployee
+FROM Company c,
+     Lead_Manager lm,
+     Senior_Manager sm,
+     Manager m,
+     Employee e
+WHERE c.company_code = lm.company_code
+      AND lm.lead_manager_code = sm.lead_manager_code
+      AND sm.senior_manager_code = m.senior_manager_code
+      AND m.manager_code = e.manager_code
+GROUP BY c.company_code,
+         c.founder
+ORDER BY c.company_code 
+
